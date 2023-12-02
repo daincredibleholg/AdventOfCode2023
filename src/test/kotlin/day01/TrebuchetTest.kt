@@ -1,7 +1,8 @@
 package day01
 
-import org.testng.Assert.assertEquals
-import org.testng.annotations.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
 
 class TrebuchetTest {
 
