@@ -3,15 +3,15 @@ package day01
 import org.testng.Assert.assertEquals
 import org.testng.annotations.Test
 
-class CalibrationTest {
+class TrebuchetTest {
 
-    val calibration = Calibration()
+    val trebuchet = Trebuchet()
 
     @Test
     fun checkDemoInput() {
         val input = {}.javaClass.classLoader?.getResource("day01/demo-input.txt")?.readText()?.lines()
 
-        val actual = calibration.calibrate(input!!)
+        val actual = trebuchet.calibrate(input!!)
 
         assertEquals(actual, 142)
     }
@@ -19,7 +19,7 @@ class CalibrationTest {
     @Test
     fun checkDemoInputPart2() {
         val input = {}.javaClass.classLoader?.getResource("day01/demo-input-part2.txt")?.readText()?.lines()
-        val actual = calibration.calibrate(input!!)
+        val actual = trebuchet.calibrate(input!!)
 
         assertEquals(actual, 281)
     }
