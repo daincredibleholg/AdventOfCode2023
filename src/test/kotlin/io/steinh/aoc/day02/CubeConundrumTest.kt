@@ -1,7 +1,5 @@
 package io.steinh.aoc.day02
 
-import io.steinh.aoc.day02.CubeConundrum
-import io.steinh.aoc.day02.CubeCount
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
