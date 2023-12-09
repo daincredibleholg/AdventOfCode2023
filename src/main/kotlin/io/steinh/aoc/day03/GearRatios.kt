@@ -10,11 +10,11 @@ class GearRatios {
             val numberMatches = "(\\d+)".toRegex().findAll(line)
 
             for (numberMatch in numberMatches) {
-                var startPos = numberMatch.groups[0]!!.range.start
+                var startPos = numberMatch.groups[0]!!.range.first()
                 if (startPos > 0) {
-                    startPos = startPos - 1
+                    startPos -= 1
                 }
-                val endPos = numberMatch.groups[0]!!.range.endInclusive + 1
+                val endPos = numberMatch.groups[0]!!.range.last() + 1
 
                 val startLineId = if (lineIndex > 0) lineIndex - 1 else 0
                 val endLineId = if (lineIndex < lines.lastIndex) lineIndex + 1 else lineIndex
@@ -59,10 +59,10 @@ class GearRatios {
 
             for (match in numberMatches) {
                 val matchRange = match.groups[0]!!.range
-                val startAt = if (matchRange.start > 0) matchRange.start - 1 else 0
-                val endAt = matchRange.endInclusive + 1
+                val startAt = if (matchRange.first() > 0) matchRange.first() - 1 else 0
+                val endAt = matchRange.last() + 1
 
-                if ((startAt..endAt).contains(range.start)) {
+                if ((startAt..endAt).contains(range.first())) {
                     foundNumbers.add(match.groups[0]!!.value.toInt())
                 }
 
@@ -70,7 +70,7 @@ class GearRatios {
         }
 
         if (foundNumbers.size == 2) {
-            return foundNumbers.first * foundNumbers.last
+            return foundNumbers.first() * foundNumbers.last()
         }
         return 0
     }
