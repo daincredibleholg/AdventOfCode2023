@@ -16,5 +16,11 @@ class ScratchcardTest {
         assertEquals(13, actual)
     }
 
+    @Test
+    fun `Given a table of gift cards then returns amount of total cards won`() {
+        val actual = scratchcard.calculateNumberOfCardsWon(given!!)
+
+        assertEquals(30, actual)
+    }
 
 }
