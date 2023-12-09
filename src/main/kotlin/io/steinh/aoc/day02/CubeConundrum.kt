@@ -1,4 +1,4 @@
-package day02
+package io.steinh.aoc.day02
 
 class CubeConundrum {
 

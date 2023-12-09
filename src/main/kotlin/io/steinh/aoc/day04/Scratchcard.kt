@@ -1,4 +1,4 @@
-package day04
+package io.steinh.aoc.day04
 
 class Scratchcard {
     fun calculatePoints(lines: List<String>) = getMatchingNumbers(lines).sum()

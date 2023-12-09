@@ -1,4 +1,4 @@
-package day03
+package io.steinh.aoc.day03
 
 class GearRatios {
     fun addUpPartNumbers(lines: List<String>): Int {

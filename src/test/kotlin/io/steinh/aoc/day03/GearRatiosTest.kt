@@ -1,5 +1,6 @@
-package day03
+package io.steinh.aoc.day03
 
+import io.steinh.aoc.day03.GearRatios
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 

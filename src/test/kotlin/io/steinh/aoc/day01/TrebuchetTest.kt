@@ -1,5 +1,6 @@
-package day01
+package io.steinh.aoc.day01
 
+import io.steinh.aoc.day01.Trebuchet
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

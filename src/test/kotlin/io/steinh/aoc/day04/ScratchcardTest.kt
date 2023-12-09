@@ -1,5 +1,6 @@
-package day04
+package io.steinh.aoc.day04
 
+import io.steinh.aoc.day04.Scratchcard
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
