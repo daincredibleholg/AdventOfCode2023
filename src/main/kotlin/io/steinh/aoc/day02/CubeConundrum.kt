@@ -1,4 +1,4 @@
-package day02
+package io.steinh.aoc.day02
 
 class CubeConundrum {
 
@@ -74,7 +74,7 @@ class CubeConundrum {
         for (line in lines) {
             val gameId = "Game (\\d+)".toRegex().find(line)!!.groupValues[1].toInt()
 
-            val drawnSets = line.split(": ").last.split(";")
+            val drawnSets = line.split(": ").last().split(";")
 
             val sets = buildList {
                 for (set in drawnSets) {

@@ -1,4 +1,4 @@
-package day01
+package io.steinh.aoc.day01
 
 
 class Trebuchet {

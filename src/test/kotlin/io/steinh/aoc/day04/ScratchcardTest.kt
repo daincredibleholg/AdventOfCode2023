@@ -1,4 +1,4 @@
-package day04
+package io.steinh.aoc.day04
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
