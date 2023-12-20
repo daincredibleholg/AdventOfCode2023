@@ -19,10 +19,10 @@ class AlmanacInputProcessor {
         )
     }
 
-    private fun extractSeeds(input: String): List<Int> {
+    private fun extractSeeds(input: String): List<Long> {
         val spaceSeperatedSeeds = "^seeds: ([\\d ]+)\n".toRegex().find(input) ?: return emptyList()
 
-        return spaceSeperatedSeeds.groupValues[1].split(" ").map { it.toInt() }
+        return spaceSeperatedSeeds.groupValues[1].split(" ").map { it.toLong() }
     }
 
     private fun extractBlockFor(prefix: String, input: String): List<Mapping> {
@@ -35,13 +35,13 @@ class AlmanacInputProcessor {
     }
 
     private fun extractMapping(matchResult: MatchResult): Mapping {
-        var length = matchResult.groupValues[LENGTH_POSITION].toInt()
+        var length = matchResult.groupValues[LENGTH_POSITION].toLong()
         if (length > 0) {
             length -= 1
         }
 
-        val destinationRangeStart = matchResult.groupValues[1].toInt()
-        val sourceRangeStart = matchResult.groupValues[2].toInt()
+        val destinationRangeStart = matchResult.groupValues[1].toLong()
+        val sourceRangeStart = matchResult.groupValues[2].toLong()
         return Mapping(destinationRangeStart..(destinationRangeStart+length),
             sourceRangeStart..(sourceRangeStart+length))
     }
@@ -49,12 +49,12 @@ class AlmanacInputProcessor {
 }
 
 data class Mapping(
-    val destinationRangeStart: IntRange,
-    val sourceRangeStart: IntRange,
+    val destinationRangeStart: LongRange,
+    val sourceRangeStart: LongRange,
 )
 
 data class Input(
-    val seeds: List<Int>,
+    val seeds: List<Long>,
     val seedToSoilMappings: List<Mapping>,
     val soilToFertilizerMappings: List<Mapping>,
     val fertilizerToWaterMappings: List<Mapping>,

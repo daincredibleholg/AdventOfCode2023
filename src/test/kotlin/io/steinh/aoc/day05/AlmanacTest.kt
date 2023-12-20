@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 
 class AlmanacTest {
 
-    private val almanac = Almanac()
+    private val almanac = Almanac(getDemoInput())
 
     @Test
     fun `Given the demo input then should return 35`() {
