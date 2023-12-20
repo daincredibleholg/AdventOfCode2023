@@ -21,6 +21,30 @@ class Almanac(private val sourceData: Input) {
         return list.first()
     }
 
+    fun lowestLocationForSeedRanges(): Long {
+        var lowestLocationFound = 0L
+
+        sourceData.seeds.chunked(2).forEach { seedRange ->
+            (seedRange.first()..(seedRange.first() + seedRange.last())).forEach {
+                val soil = getSoilForSeed(it)
+                val fertilizer = getFertilizerForSoil(soil)
+                val water = getWaterForFertilizer(fertilizer)
+                val light = getLightForWater(water)
+                val temperature = getTemperatureForLight(light)
+                val humidity = getHumidityForTemperature(temperature)
+                val location = getLocationForHumidity(humidity)
+
+                lowestLocationFound =
+                    if (lowestLocationFound == 0L || location < lowestLocationFound)
+                        location
+                    else lowestLocationFound
+            }
+        }
+
+
+        return lowestLocationFound
+    }
+
     private fun getSoilForSeed(seed: Long) =
         filterFromMapping(seed, sourceData.seedToSoilMappings)
 
@@ -63,6 +87,8 @@ fun main() {
     val instance = Almanac(input)
 
     val resultOne = instance.lowestLocation()
-
     println("Result for day 05, part  I: $resultOne")
+
+    val resultTwo = instance.lowestLocationForSeedRanges()
+    println("Result for day 05, part II: $resultTwo")
 }

@@ -13,4 +13,11 @@ class AlmanacTest {
 
         assertEquals(35, actual)
     }
+
+    @Test
+    fun `Given the demo input and treating the seeds as ranges then should return 46 (Part II)`() {
+        val actual = almanac.lowestLocationForSeedRanges()
+
+        assertEquals(46, actual)
+    }
 }
