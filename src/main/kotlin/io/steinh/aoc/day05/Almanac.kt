@@ -25,7 +25,7 @@ class Almanac(private val sourceData: Input) {
         var lowestLocationFound = 0L
 
         sourceData.seeds.chunked(2).forEach { seedRange ->
-            (seedRange.first()..(seedRange.first() + seedRange.last())).forEach {
+            for(it in seedRange.first()..(seedRange.first() + seedRange.last())) {
                 val soil = getSoilForSeed(it)
                 val fertilizer = getFertilizerForSoil(soil)
                 val water = getWaterForFertilizer(fertilizer)
